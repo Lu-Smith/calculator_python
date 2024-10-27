@@ -28,7 +28,7 @@ class Calculator(QWidget):
       '7': (1, 0), '8': (1, 1), '9': (1, 2), '/': (1, 3),
       '4': (2, 0), '5': (2, 1), '6': (2, 2), '*': (2, 3),
       '1': (3, 0), '2': (3, 1), '3': (3, 2), '-': (3, 3),
-      '0': (4, 0), '.': (4, 1), '=': (4, 2), '+': (4, 3),
+      '0': (4, 0), '.': (4, 1), '+': (4, 2), '=': (4, 3),
     }
     
     for btn_text, pos in buttons.items():
@@ -38,6 +38,23 @@ class Calculator(QWidget):
     self.setLayout(layout)
     
     self.center()
+    
+  def on_button_clicked(self):
+    sender = self.sender().text()
+    
+    if sender == '=':
+      try:
+        pass
+      except Exception:
+        pass
+    elif sender == 'C':
+      pass
+    else:
+      current_text = self.display.text()
+      if current_text == "0":
+          self.display.setText(sender)
+      else:
+          self.display.setText(current_text + sender)
     
   def center(self):
     screen = QDesktopWidget().availableGeometry().center()
