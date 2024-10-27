@@ -44,11 +44,13 @@ class Calculator(QWidget):
     
     if sender == '=':
       try:
-        pass
+        result = str(eval(self.display.text()))
+        self.display.setText(result)
       except Exception:
-        pass
+        self.display.setText("Error")
     elif sender == 'C':
-      pass
+      self.display.clear()
+      self.display.setText("0")
     else:
       current_text = self.display.text()
       if current_text == "0":
