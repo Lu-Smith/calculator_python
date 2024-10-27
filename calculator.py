@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import (QWidget, QApplication, QLabel, QDesktopWidget, 
-                             QGridLayout, QLineEdit)
+                             QGridLayout, QLineEdit, QPushButton)
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import Qt
 
@@ -20,7 +20,22 @@ class Calculator(QWidget):
     self.resize(400, 600)
     self.setWindowIcon(QIcon("calculator.png"))
     
-
+    #layout
+    layout = QGridLayout()
+    layout.addWidget(self.display, 0, 0, 1, 4)
+    
+    buttons = {
+      '7': (1, 0), '8': (1, 1), '9': (1, 2), '/': (1, 3),
+      '4': (2, 0), '5': (2, 1), '6': (2, 2), '*': (2, 3),
+      '1': (3, 0), '2': (3, 1), '3': (3, 2), '-': (3, 3),
+      '0': (4, 0), '.': (4, 1), '=': (4, 2), '+': (4, 3),
+    }
+    
+    for btn_text, pos in buttons.items():
+      button = QPushButton(btn_text)
+      layout.addWidget(button, pos[0], pos[1])
+    
+    self.setLayout(layout)
     
     self.center()
     
