@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import (QWidget, QApplication, QLabel, QDesktopWidget, 
+from PyQt5.QtWidgets import (QWidget, QApplication, QDesktopWidget, 
                              QGridLayout, QLineEdit, QPushButton)
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import Qt
@@ -7,7 +7,6 @@ from PyQt5.QtCore import Qt
 class Calculator(QWidget):
   def __init__(self):
     super().__init__()
-    self.time_label = QLabel("I am a calculator", self)
     self.display = QLineEdit(self)
     self.display.setReadOnly(True)
     self.display.setFixedHeight(50)
