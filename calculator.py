@@ -45,6 +45,12 @@ class Calculator(QWidget):
     
     for btn_text, pos in buttons.items():
       button = QPushButton(btn_text)
+      if btn_text == '=':
+        button.setObjectName("equalsButton")
+      elif btn_text == 'C':
+        button.setObjectName("clearButton")
+      elif btn_text in {'+', '-', '*', '/'}:
+        button.setObjectName("operatorButton")
       button.setStyleSheet("""
         QPushButton {
             background-color: #e0e0e0;
@@ -62,6 +68,30 @@ class Calculator(QWidget):
       """)
       button.clicked.connect(self.on_button_clicked)
       layout.addWidget(button, pos[0], pos[1])
+      
+    self.setStyleSheet("""
+      QPushButton#equalsButton {
+          background-color: #4caf50;
+          color: rgb(12, 130, 114);
+      }
+      QPushButton#equalsButton:hover {
+          background-color: #45a049;
+      }
+      QPushButton#clearButton {
+          background-color: #f44336;
+          color: rgb(242, 10, 68);
+      }
+      QPushButton#clearButton:hover {
+          background-color: #e53935;
+      }
+      QPushButton#operatorButton {
+          background-color: #2196f3;
+          color: rgb(12, 130, 114);
+      }
+      QPushButton#operatorButton:hover {
+          background-color: #1e88e5;
+      }
+    """)
     
     self.setLayout(layout)
     
