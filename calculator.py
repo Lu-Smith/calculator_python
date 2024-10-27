@@ -19,6 +19,18 @@ class Calculator(QWidget):
     self.resize(400, 600)
     self.setWindowIcon(QIcon("calculator.png"))
     
+    #styling
+    self.display.setStyleSheet("""
+      QLineEdit {
+        background-color: #f5f5f5;
+        font-size: 24px;
+        padding: 10px;
+        border: 1px solid #d9d9d9;
+        border-radius: 5px;
+        color: #333;
+      }
+    """)
+    
     #layout
     layout = QGridLayout()
     layout.addWidget(self.display, 0, 0, 1, 4)
@@ -33,6 +45,21 @@ class Calculator(QWidget):
     
     for btn_text, pos in buttons.items():
       button = QPushButton(btn_text)
+      button.setStyleSheet("""
+        QPushButton {
+            background-color: #e0e0e0;
+            font-size: 18px;
+            border: 1px solid #bfbfbf;
+            border-radius: 5px;
+            padding: 15px;
+        }
+        QPushButton:hover {
+            background-color: #d1d1d1;
+        }
+        QPushButton:pressed {
+            background-color: #c0c0c0;
+        }
+      """)
       button.clicked.connect(self.on_button_clicked)
       layout.addWidget(button, pos[0], pos[1])
     
