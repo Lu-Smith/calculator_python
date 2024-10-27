@@ -106,7 +106,9 @@ class Calculator(QWidget):
       if current_text == "0":
           self.display.setText(sender)
       else:
-          self.display.setText(current_text + sender)
+        current_text = self.display.text()
+        if not (current_text[-1] in '+-*/' and sender in '+-*/'):
+            self.display.setText(current_text + sender)
     
   def center(self):
     screen = QDesktopWidget().availableGeometry().center()
