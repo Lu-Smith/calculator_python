@@ -28,11 +28,13 @@ class Calculator(QWidget):
       '7': (1, 0), '8': (1, 1), '9': (1, 2), '/': (1, 3),
       '4': (2, 0), '5': (2, 1), '6': (2, 2), '*': (2, 3),
       '1': (3, 0), '2': (3, 1), '3': (3, 2), '-': (3, 3),
-      '0': (4, 0), '.': (4, 1), '+': (4, 2), '=': (4, 3),
+      '0': (4, 0), '.': (4, 1), 'C': (4, 2), '+': (4, 3),
+      '=': (5, 3),
     }
     
     for btn_text, pos in buttons.items():
       button = QPushButton(btn_text)
+      button.clicked.connect(self.on_button_clicked)
       layout.addWidget(button, pos[0], pos[1])
     
     self.setLayout(layout)
