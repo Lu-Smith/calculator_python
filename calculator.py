@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import (QWidget, QApplication, QLabel)
+from PyQt5.QtWidgets import (QWidget, QApplication, QLabel, QDesktopWidget)
 from PyQt5.QtGui import QIcon
 
 class Calculator(QWidget):
@@ -12,6 +12,13 @@ class Calculator(QWidget):
     self.setWindowTitle("Stopwatch")
     self.resize(400, 600)
     self.setWindowIcon(QIcon("calculator.png"))
+    
+    self.center()
+    
+  def center(self):
+    screen = QDesktopWidget().availableGeometry().center()
+    frame = self.frameGeometry()
+    frame.moveCenter(screen)
 
 
 def main():
