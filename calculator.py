@@ -51,45 +51,37 @@ class Calculator(QWidget):
         button.setObjectName("clearButton")
       elif btn_text in {'+', '-', '*', '/'}:
         button.setObjectName("operatorButton")
-      button.setStyleSheet("""
-        QPushButton {
-            background-color: #e0e0e0;
-            font-size: 18px;
-            border: 1px solid #bfbfbf;
-            border-radius: 5px;
-            padding: 15px;
-        }
-        QPushButton:hover {
-            background-color: #d1d1d1;
-        }
-        QPushButton:pressed {
-            background-color: #c0c0c0;
-        }
-      """)
+      else: 
+        button.setObjectName("numberButton")
+      
       button.clicked.connect(self.on_button_clicked)
       layout.addWidget(button, pos[0], pos[1])
       
     self.setStyleSheet("""
+        QPushButton {
+          background-color: rgb(1, 28, 24);
+          font-size: 18px;
+          border: 1px solid #bfbfbf;
+          border-radius: 5px;
+          padding: 15px;
+        }
+        QPushButton:hover {
+          background-color: rgb(17, 79, 70);
+        }
+        QPushButton:pressed {
+          background-color: rbg(17, 79, 70);
+        }
       QPushButton#equalsButton {
-          background-color: #4caf50;
-          color: rgb(12, 130, 114);
-      }
-      QPushButton#equalsButton:hover {
-          background-color: #45a049;
+        color: rgb(115, 230, 213);
       }
       QPushButton#clearButton {
-          background-color: #f44336;
-          color: rgb(242, 10, 68);
+        color: rgb(242, 10, 68);
       }
-      QPushButton#clearButton:hover {
-          background-color: #e53935;
+      QPushButton#numberButton {
+        color: white;
       }
       QPushButton#operatorButton {
-          background-color: #2196f3;
-          color: rgb(12, 130, 114);
-      }
-      QPushButton#operatorButton:hover {
-          background-color: #1e88e5;
+        color: rgb(115, 230, 213);
       }
     """)
     
